@@ -10,24 +10,6 @@ function randomColor() {
   return rgb;
 }
 
-// 02 | 03- Cria paleta com quatro cores distintas iniciando com 'preto'
-function paletteColor() {
-  const palette = document.querySelector('#color-palette');
-  palette.classList.add('color-palette');
-  for (let index = 0; index < 4; index += 1) {
-    const divColor = document.createElement('div');
-    divColor.classList.add('color');
-    divColor.classList.add(`color${[index]}`);
-    if (index === 0) {
-      divColor.style.backgroundColor = 'black';
-    } else {
-      const cor = randomColor();
-      divColor.style.backgroundColor = cor;
-    }
-    palette.appendChild(divColor);
-  }
-}
-
 // Cria seletor de cores
 function inputColor() {
   const palette = document.querySelector('#color-palette');
@@ -80,8 +62,8 @@ function pixelFrame(size=5, size_width=5) {
   if (select < 5) {
     select = 5;
   } else
-  if (select > 10) {
-    select = 10;
+  if (select > 33) {
+    select = 33;
   }
   if (sizeWidth === '') {
     sizeWidth = select;
@@ -89,8 +71,8 @@ function pixelFrame(size=5, size_width=5) {
   if (sizeWidth < 5) {
     sizeWidth = 5;
   } else
-  if (size_width > 30) {
-    sizeWidth = 30;
+  if (size_width > 70) {
+    sizeWidth = 70;
   }
   const container = document.querySelector('.container');
   const pixelBoard = document.createElement('div');
@@ -215,14 +197,16 @@ function divImage(number) {
 function createFooter() {
   const container = document.querySelector('body');
   const footer = document.createElement('footer');
+  const linkedin = `<a href="https://www.linkedin.com/in/cleberlopesteixeira/" target="_blanck">Linkedin</a>`;
+  const github = `<a href="https://cleber-teixeira.github.io/" target="_blanck">GitHub</a>`;
   footer.id = 'footer';
   footer.classList.add('footer');
-  footer.innerText = 'by: Web Developer Cleber Lopes Teixeira ©️ | cleber-teixeira.github.io';
+  footer.innerHTML = `by: Web Developer Cleber Teixeira ©️ | ${linkedin} | ${github}`;
   container.appendChild(footer);
 }
 
+
 window.onload = function () {
-  // paletteColor();
   inputColor();
   // selectColor('color0');
   createButton('Redimensionar', 'generate-board', 'controls');
