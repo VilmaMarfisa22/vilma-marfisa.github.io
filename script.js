@@ -197,18 +197,18 @@ function divImage(number) {
 function createFooter() {
   const container = document.querySelector('body');
   const footer = document.createElement('footer');
+  const portfolio = `<a href="https://cleber-teixeira.github.io/" target="_blanck">Portfólio</a>`;
   const linkedin = `<a href="https://www.linkedin.com/in/cleberlopesteixeira/" target="_blanck">Linkedin</a>`;
-  const github = `<a href="https://cleber-teixeira.github.io/" target="_blanck">GitHub</a>`;
+  const github = `<a href="https://github.com/cleber-teixeira/" target="_blanck">GitHub</a>`;
   footer.id = 'footer';
   footer.classList.add('footer');
-  footer.innerHTML = `by: Web Developer Cleber Teixeira ©️ | ${linkedin} | ${github}`;
+  footer.innerHTML = `by: Web Developer Cleber Teixeira ©️ | ${portfolio} | ${linkedin} | ${github}`;
   container.appendChild(footer);
 }
 
 
 window.onload = function () {
   inputColor();
-  // selectColor('color0');
   createButton('Redimensionar', 'generate-board', 'controls');
   createButton('Limpar Quadro', 'clear-board', 'controls');
   pixelFrame(5);
